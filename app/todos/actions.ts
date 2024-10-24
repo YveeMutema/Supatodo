@@ -5,10 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
 export async function addTodo(formData: FormData) {
-    await new Promise((resolve) => {
-        setTimeout(resolve,3000);
-    })
-    const supabase = await createClient();
+    const supabase = createClient();
     const text = formData.get("todo") as string | null
 
     if (!text) {
@@ -34,7 +31,7 @@ export async function addTodo(formData: FormData) {
 }
 
 export async function deleteTodo(id: number) {
-    const supabase = await createClient();
+    const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser()
 
     if (!user) {
@@ -54,14 +51,16 @@ export async function deleteTodo(id: number) {
 }
 
 export async function updateTodo(todo: Todo) {
-    const supabase = await createClient();
+
+
+    const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser()
 
     if (!user) {
         throw new Error("User is not logged in")
     }
 
-    const { error } = await supabase.from("todos").update(todo).match({
+    const { error } = await supabase.from("todos").insert({
         user_id: user.id,
         id: todo.id
     })
