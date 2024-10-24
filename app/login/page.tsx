@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -9,7 +8,7 @@ import { createClient } from "@/utils/supabase/server";
 import { OAuthButtons } from "./oauth-signin";
 
 export default async function Login({
-  searchParams, 
+  searchParams,
 }: {
   searchParams: { message: string };
 }) {
@@ -56,9 +55,9 @@ export default async function Login({
                 required
               />
             </div>
-            {await searchParams.message && (
+            {searchParams.message && (
               <div className="text-sm font-medium text-destructive">
-                {await searchParams.message}
+                {searchParams.message}
               </div>
             )}
             <Button formAction={emaillogin} className="w-full">
