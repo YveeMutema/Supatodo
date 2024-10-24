@@ -4,7 +4,7 @@
  <img src="https://imgur.com/7Rayrls.png" width="400">
 </p>
 
-In this repo is a simple implementation of a minimal todo app, used for demo purposes, Features include:
+In this repository is a simple implementation of a minimal todo app, used for demo purposes, Features include:
 
 - Server Actions
 - useFormState
@@ -42,8 +42,10 @@ create policy "Individuals can delete their own todos." on todos for
 
 ### Learning Points
 
+Hopefully, from this project and the video, you can learn:
+
 - NextJS 14 Server Actions (and drawbacks)
 - Supabase Auth and Database
 - useFormState
 - useOptimistic
-
+Nice doing business with you.
