@@ -9,7 +9,7 @@ import { OAuthButtons } from "./oauth-signin";
 import { useSearchParams } from 'next/navigation';
 
 export default async function Login({
-  searchParams,
+  searchParams, 
 }: {
   searchParams: { message: string };
 }) {
@@ -56,9 +56,9 @@ export default async function Login({
                 required
               />
             </div>
-            {searchParams.message && (
+            {await searchParams.message && (
               <div className="text-sm font-medium text-destructive">
-                {searchParams.message}
+                {await searchParams.message}
               </div>
             )}
             <Button formAction={emailLogin} className="w-full">
